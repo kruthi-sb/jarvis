@@ -1,13 +1,89 @@
-print("hello")
-print("what")
 
 
 
 
+import subprocess
+import wolframalpha
+import pyttsx3
+import tkinter
+import json
+import random
+import operator
+import speech_recognition as sr
+import datetime
+import wikipedia
+import webbrowser
+import os
+import winshell
+import pyjokes
+import feedparser
+import smtplib
+import ctypes
+import time
+import requests
+import shutil
+from twilio.rest import Client
+from clint.textui import progress
+from ecapture import ecapture as ec
+from bs4 import BeautifulSoup
+import win32com.client as wincl
+from urllib.request import urlopen
 
-print(123)
-
-
-
-
-
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+ 
+def wishMe():
+    hour = int(datetime.datetime.now().hour)
+    if hour>= 0 and hour<12:
+        speak("Good Morning  !")
+  
+    elif hour>= 12 and hour<18:
+        speak("Good Afternoon  !")  
+  
+    else:
+        speak("Good Evening  !") 
+  
+    name =("Jarvis ")
+    speak("I am your Assistant")
+    speak(name)
+     
+ 
+def username():
+    speak("What should i call you Madam")
+    uname = takeCommand()
+    speak("Welcome Miss")
+    speak(uname)
+    columns = shutil.get_terminal_size().columns
+     
+    print("#####################".center(columns))
+    print("Welcome Ms.", uname.center(columns))
+    print("#####################".center(columns))
+     
+    speak("How can i Help you, Madam")
+ 
+def takeCommand():
+     
+    r = sr.Recognizer()
+     
+    with sr.Microphone() as source:
+         
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+  
+    try:
+        print("Recognizing...")   
+        query = r.recognize_google(audio, language ='en-in')
+        print(f"User said: {query}\n")
+  
+    except Exception as e:
+        print(e)   
+        print("Unable to Recognize your voice.") 
+        return "None"
+     
+    return query
+  
