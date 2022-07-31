@@ -1,0 +1,31 @@
+import tkinter 
+from tkinter import * # "*" means all the functions and libraries
+from tkinter.ttk import * #"ttk" - This will give you the effects of modern graphics. 
+
+
+def Result():
+    input1 = user_entry.get("1.0", "END-1c")
+    input2 = pass_entry.get("1.0", "end-1c")
+    if input1=="kruthi" and input2 == "ironman":
+
+
+root = Tk()  #root is the name of the window that opens
+frame = Frame(root).pack()
+root.title("Jarvis Authorisation")
+label = Label(root, text ="Welcome!", font=('calibre',10, 'bold')).pack() #The Pack geometry manager packs widgets in rows or columns.
+
+root.geometry("400x200") #set size of window
+
+user_name = Label(root, text = "Username").place(x = 40, y = 60)
+
+user_pass = Label(root, text ="Password").place(x = 40, y = 100)
+
+user_entry = Entry(root, width = 30).place(x = 110, y = 60)
+
+pass_entry = Entry(root, width = 30, show = "*").place(x = 110, y = 100)
+
+submit_b = Button(root, text ="Submit", command = root.destroy).place(x = 160, y = 140) #root.destroy is for exitting the window
+
+exit_b = Button(root, text = "exit button", command = root.destroy).place(x = 300, y= 160)
+
+output = Label(root, text = "" )
