@@ -36,6 +36,7 @@ def main():
         if (usern=="kruthi" and input2 == "ironman") or (usern == "natasha" and input2 == "blackwidow"):
             Message(root, text = success).place(x = 330, y = 200)
             initiate(usern)
+            takeCommand()
             #call your functions here!!!
 
         else:
@@ -90,6 +91,29 @@ def initiate(usern):
         speak(usern) 
 
     speak("I am Jarvis, your personal Assistant under construction")
+
+
+def takeCommand():
+     
+    r = sr.Recognizer()
+     
+    with sr.Microphone() as source:
+         
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+  
+    try:
+        print("Recognizing...")   
+        query = r.recognize_google(audio, language ='en-in')
+        print(f"User said: {query}\n")
+  
+    except Exception as e:
+        print(e)   
+        print("Unable to Recognize your voice.") 
+        return "None"
+     
+    return query
     
 
 
@@ -125,27 +149,6 @@ main()
      
     speak("How can i Help you, Madam")'''
  
-'''def takeCommand():
-     
-    r = sr.Recognizer()
-     
-    with sr.Microphone() as source:
-         
-        print("Listening...")
-        r.pause_threshold = 1
-        audio = r.listen(source)
-  
-    try:
-        print("Recognizing...")   
-        query = r.recognize_google(audio, language ='en-in')
-        print(f"User said: {query}\n")
-  
-    except Exception as e:
-        print(e)   
-        print("Unable to Recognize your voice.") 
-        return "None"
-     
-    return query'''
 
 
 
@@ -159,12 +162,7 @@ main()
 
 
 
-'''def main():
-    autho()
-    wishMe()
-    mainloop()
 
-main()'''
 
 
 
