@@ -1,11 +1,9 @@
-
-
-
-
 import subprocess
 import wolframalpha
 import pyttsx3
-import tkinter
+import tkinter as tk
+from tkinter import * # "*" means all the functions and libraries
+from tkinter.ttk import * #"ttk" - This will give you the effects of modern graphics. 
 import json
 import random
 import operator
@@ -29,12 +27,90 @@ from bs4 import BeautifulSoup
 import win32com.client as wincl
 from urllib.request import urlopen
 
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
-def speak(audio):
-    engine.say(audio)
-    engine.runAndWait()
+
+def main():
+    def Result(user_e, pass_e):
+        usern = user_e.get()
+        input2 = pass_e.get()
+        success = "starting Jarvis..."
+        if (usern=="kruthi" and input2 == "ironman") or (usern == "natasha" and input2 == "blackwidow"):
+            Message(root, text = success).place(x = 330, y = 200)
+            initiate(usern)
+            #call your functions here!!!
+
+        else:
+            Message(root, text = "Autorisation failed!").place(x = 300, y = 200)
+
+
+    root = Tk()  #root is the name of the window that opens
+    frame = Frame(root).pack()
+    root.title("Jarvis Authorisation")
+    label = Label(root, text ="Welcome!", font=('calibre',10, 'bold')).pack() #The Pack geometry manager packs widgets in rows or columns.
+
+    root.geometry("400x250") #set size of window
+
+    user_e = tk.StringVar()
+    pass_e = tk.StringVar()
+
+
+    user_name = Label(root, text = "Username").place(x = 40, y = 60)
+
+    user_pass = Label(root, text ="Password").place(x = 40, y = 100)
+
+    user_entry = Entry(root, width = 30, textvariable = user_e).place(x = 110, y = 60)
+
+    pass_entry = Entry(root, width = 30, textvariable = pass_e, show = "*").place(x = 110, y = 100)
+
+    submit_b = Button(root, text ="Submit", command = lambda: Result(user_e, pass_e)).place(x = 160, y = 140) 
+
+    #exit_b = Button(root, text = "Exit", command = root.destroy).place(x = 300, y= 160)#root.destroy is for exitting the window
+    mainloop()
+
+
+def initiate(usern):
+    engine = pyttsx3.init('sapi5')
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[0].id)
+    def speak(audio):
+        engine.say(audio)
+        engine.runAndWait()
+
+    hour = int(datetime.datetime.now().hour)
+    if hour>= 0 and hour<12:
+        speak("Good Morning  !")
+        speak(usern)
+        
+  
+    elif hour>= 12 and hour<18:
+        speak("Good Afternoon  !") 
+        speak(usern) 
+  
+    else:
+        speak("Good Evening  !")
+        speak(usern) 
+
+    speak("I am Jarvis, your personal Assistant under construction")
+    
+
+
+
+
+
+
+
+main()
+
+    
+
+
+
+
+
+
+
+
+
+
 
 '''def username():
     speak("What should i call you Madam")
@@ -47,25 +123,7 @@ def speak(audio):
     print("Welcome Ms.", uname.center(columns))
     print("#####################".center(columns))
      
-    speak("How can i Help you, Madam")
- 
-def wishMe():
-    hour = int(datetime.datetime.now().hour)
-    if hour>= 0 and hour<12:
-        speak("Good Morning  !")
-  
-    elif hour>= 12 and hour<18:
-        speak("Good Afternoon  !")  
-  
-    else:
-        speak("Good Evening  !") 
-  
-    name =("Jarvis ")
-    speak("I am your Assistant")
-    speak(name)'''
-     
- 
-
+    speak("How can i Help you, Madam")'''
  
 '''def takeCommand():
      
@@ -88,6 +146,27 @@ def wishMe():
         return "None"
      
     return query'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''def main():
+    autho()
+    wishMe()
+    mainloop()
+
+main()'''
+
+
 
 
 

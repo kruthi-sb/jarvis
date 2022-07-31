@@ -13,8 +13,6 @@ def Result(user_e, pass_e):
         Message(root, text = "Autorisation failed!").place(x = 300, y = 200)
 
 
-
-
 root = Tk()  #root is the name of the window that opens
 frame = Frame(root).pack()
 root.title("Jarvis Authorisation")
@@ -34,10 +32,7 @@ user_entry = Entry(root, width = 30, textvariable = user_e).place(x = 110, y = 6
 
 pass_entry = Entry(root, width = 30, textvariable = pass_e, show = "*").place(x = 110, y = 100)
 
-submit_b = Button(root, text ="Submit", command = lambda: Result(user_e, pass_e)).place(x = 160, y = 140) #root.destroy is for exitting the window
+submit_b = Button(root, text ="Submit", command = lambda: Result(user_e, pass_e)).place(x = 160, y = 140) 
 
-#exit_b = Button(root, text = "Exit", command = root.destroy).place(x = 300, y= 160)
-
-
-
+#exit_b = Button(root, text = "Exit", command = root.destroy).place(x = 300, y= 160)#root.destroy is for exitting the window
 mainloop()
