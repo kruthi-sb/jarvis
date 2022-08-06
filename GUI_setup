@@ -7,8 +7,10 @@ def Result(user_e, pass_e):
     input1 = user_e.get()
     input2 = pass_e.get()
     success = "starting Jarvis..."
-    if (input1=="kruthi" and input2 == "ironman") or (input1 == "nitisha" and input2 == "blackwidow"):
+    if (input1=="kruthi" and input2 == "ironman46") or (input1 == "nitisha" and input2 == "explorer67"):
         Message(root, text = success).place(x = 330, y = 200)
+        chatbox()
+
     else:
         Message(root, text = "Autorisation failed!").place(x = 300, y = 200)
 
@@ -32,7 +34,33 @@ user_entry = Entry(root, width = 30, textvariable = user_e).place(x = 110, y = 6
 
 pass_entry = Entry(root, width = 30, textvariable = pass_e, show = "*").place(x = 110, y = 100)
 
-submit_b = Button(root, text ="Submit", command = lambda: Result(user_e, pass_e)).place(x = 160, y = 140) 
+submit_b = Button(root, text ="Submit", command = lambda: Result(user_e, pass_e)).place(x = 160, y = 140)
+
+BG_GRAY = "#ABB2B9"
+BG_COLOR = "#17202A"
+TEXT_COLOR = "#EAECEE"
+ 
+FONT = "Helvetica 14"
+FONT_BOLD = "Helvetica 13 bold"
+
+def chatbox():
+    chat = Toplevel()
+    chat.geometry("600x700")
+    chat.title("chat")
+    lable1 = Label(chat, text="Welcome").pack()
+ 
+    txt = Text(chat).pack()
+    
+ 
+    scrollbar = Scrollbar(txt).pack()
+    
+ 
+    e = Entry(chat).pack()
+    
+ 
+    send = Button(chat, text="Send", command=chat.destroy).pack()
+    chat.mainloop()
+
 
 #exit_b = Button(root, text = "Exit", command = root.destroy).place(x = 300, y= 160)#root.destroy is for exitting the window
-mainloop()
+root.mainloop()

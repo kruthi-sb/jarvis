@@ -1,14 +1,15 @@
 import subprocess
 import wolframalpha
-import pyttsx3
-import tkinter as tk
+import pyttsx3 #pyttsx3 is a cross-platform text to speech library which is platform independent.
+import tkinter as tk #Tkinter is the most commonly used library for developing GUI (Graphical User Interface) in Python.
 from tkinter import * # "*" means all the functions and libraries
 from tkinter.ttk import * #"ttk" - This will give you the effects of modern graphics. 
 import json
 import random
 import operator
-import speech_recognition as sr
-import datetime
+import speech_recognition as sr#To convert speech to text the one and only class we need is the Recognizer class from the speech_recognition module. 
+#Depending upon the underlying API used to convert speech to text, the Recognizer class convert our speech to text.
+import datetime #used
 import wikipedia
 import webbrowser
 import os
@@ -33,10 +34,10 @@ def main():
         usern = user_e.get()
         input2 = pass_e.get()
         success = "starting Jarvis..."
-        if (usern=="kruthi" and input2 == "ironman") or (usern == "natasha" and input2 == "blackwidow"):
+        if (usern=="kruthi" and input2 == "ironman46") or (usern == "natasha" and input2 == "explorer67"):
             Message(root, text = success).place(x = 330, y = 200)
             initiate(usern)
-            takeCommand()
+            takeCommand(usern)
             #call your functions here!!!
 
         else:
@@ -71,30 +72,30 @@ def main():
 def initiate(usern):
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[0].id)
+    engine.setProperty('voice', voices[0].id) #0 stands for male voice
     def speak(audio):
         engine.say(audio)
         engine.runAndWait()
 
-    hour = int(datetime.datetime.now().hour)
+    hour = int(datetime.datetime.now().hour) #takes the current hr value
     if hour>= 0 and hour<12:
-        speak("Good Morning  !")
+        speak("Good Morning!")
         speak(usern)
         
   
     elif hour>= 12 and hour<18:
-        speak("Good Afternoon  !") 
+        speak("Good Afternoon!") 
         speak(usern) 
   
     else:
-        speak("Good Evening  !")
+        speak("Good Evening!")
         speak(usern) 
 
     speak("I am Jarvis, your personal Assistant under construction")
+    speak("how can I help?")
 
 
-def takeCommand():
-     
+def takeCommand(usern):
     r = sr.Recognizer()
      
     with sr.Microphone() as source:
@@ -106,67 +107,15 @@ def takeCommand():
     try:
         print("Recognizing...")   
         query = r.recognize_google(audio, language ='en-in')
-        print(f"User said: {query}\n")
+        print(usern, "said -->", query)
   
     except Exception as e:
         print(e)   
         print("Unable to Recognize your voice.") 
         return "None"
      
-    return query
     
-
-
-
-
 
 
 
 main()
-
-    
-
-
-
-
-
-
-
-
-
-
-
-'''def username():
-    speak("What should i call you Madam")
-    uname = takeCommand()
-    speak("Welcome Miss")
-    speak(uname)
-    columns = shutil.get_terminal_size().columns
-     
-    print("#####################".center(columns))
-    print("Welcome Ms.", uname.center(columns))
-    print("#####################".center(columns))
-     
-    speak("How can i Help you, Madam")'''
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
