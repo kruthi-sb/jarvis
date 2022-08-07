@@ -4,12 +4,12 @@ from tkinter.ttk import * #"ttk" - This will give you the effects of modern grap
 
 
 def Result(user_e, pass_e):
-    input1 = user_e.get()
+    usern = user_e.get()
     input2 = pass_e.get()
     success = "starting Jarvis..."
-    if (input1=="kruthi" and input2 == "ironman46") or (input1 == "nitisha" and input2 == "explorer67"):
+    if (usern=="kruthi" and input2 == "ironman46") or (usern == "nitisha" and input2 == "explorer67"):
         Message(root, text = success).place(x = 330, y = 200)
-        chatbox()
+        chatbot(usern)
 
     else:
         Message(root, text = "Autorisation failed!").place(x = 300, y = 200)
@@ -36,29 +36,25 @@ pass_entry = Entry(root, width = 30, textvariable = pass_e, show = "*").place(x 
 
 submit_b = Button(root, text ="Submit", command = lambda: Result(user_e, pass_e)).place(x = 160, y = 140)
 
-BG_GRAY = "#ABB2B9"
-BG_COLOR = "#17202A"
-TEXT_COLOR = "#EAECEE"
- 
-FONT = "Helvetica 14"
-FONT_BOLD = "Helvetica 13 bold"
 
-def chatbox():
+def chatbot(usern):
     chat = Toplevel()
-    chat.geometry("600x700")
-    chat.title("chat")
-    lable1 = Label(chat, text="Welcome").pack()
+    #chat.geometry("600x700")
+    chat.title("chatbot")
+    txt = Text(chat, width=60, bg = "black", fg ="white")
+    txt.grid(row=1, column=0, columnspan=3)
  
-    txt = Text(chat).pack()
-    
+    scrollbar = Scrollbar(txt)
+    scrollbar.place(relheight=1, relx=0.974)
+
+    ulabel = Label(chat, text = usern + ":")
+    ulabel.grid(row = 2, column = 0)
  
-    scrollbar = Scrollbar(txt).pack()
-    
+    querytxt= Entry(chat, width=55)
+    querytxt.grid(row=2, column=1)
  
-    e = Entry(chat).pack()
-    
- 
-    send = Button(chat, text="Send", command=chat.destroy).pack()
+    send = Button(chat, text="Send",command=chat.destroy)
+    send.grid(row=2, column=2)
     chat.mainloop()
 
 
