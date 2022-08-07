@@ -1,0 +1,79 @@
+from distutils.command.install_egg_info import to_filename
+import speech_recognition as sr
+import pyttsx3
+import os
+import datetime
+import smtplib
+import time
+
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id) #0 stands for male voice
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+
+
+def takeCommand():
+    r = sr.Recognizer()
+     
+    with sr.Microphone() as source:
+         
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+  
+    try:
+        print("Recognizing...")   
+        query = r.recognize_google(audio, language ='en-in')
+        print("usern said -->", query)
+  
+    except Exception as e:
+        print(e)   
+        print("Unable to Recognize your voice.") 
+        return "None"   
+    
+    return query 
+
+
+
+def Email(to, content): 
+    server = smtplib.SMTP('smtp.gmail.com', 587) # former-'server location' ,latter-'port to be used(specific to server location)'
+    server.ehlo() # 'ehlo'- for domain name identification
+    server.starttls() # 'start-tls'-security reasons
+    server.login('nitupatil.2022@gmail.com','huidblzvwluuetbu') # former-'sender_name', latter-'sender_password'
+    server.sendmail('nitupatil.2022@gmail.com',to, content) # ('sender_name','receiver_address','message to deliver')
+    server.close() # close the server
+#if __name__ == '__main__':
+    #clear = lambda: os.system('cls')
+    #clear()
+def real():        
+    
+    query = takeCommand() # goes back to take command and iterates it
+    if query == "send an email" or query == "hey jarvis can you send an email":
+        try:
+            speak("whom should I send? Enter their email address")
+            to = input("enter here:")   # receiver's address
+            speak("What should I say?")
+            content = takeCommand() # to be taken from takecommand()
+            while True:
+                speak("confirm the content")
+                confirmation = takeCommand()
+                if confirmation == "ok confirm" or confirmation == "confirm Jarvis" or "confirm":
+                    Email(to, content)
+                    speak("OK, Email has been sent !")
+                    break
+                else: 
+                    speak("OK, tell me the content again")
+                    content = takeCommand()
+
+        except Exception as e:
+            print(e)
+            speak("I am not able to send this email")
+
+
+
+real()
+
