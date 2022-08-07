@@ -44,7 +44,7 @@ def Email(to, content):
     server.sendmail('nitupatil.2022@gmail.com',to, content) # ('sender_name','receiver_address','message to deliver')
     server.close() # close the server
 
-def real():        
+def sendemail():        
     
     query = takeCommand() # goes back to take command and iterates it
     if query == "send an email" or query == "hey jarvis can you send an email":
@@ -56,7 +56,7 @@ def real():
             while True:
                 speak("confirm the content")
                 confirmation = takeCommand()
-                if confirmation == "ok confirm" or confirmation == "confirm Jarvis" or "confirm":
+                if confirmation == "ok confirm" or confirmation == "confirm Jarvis" or confirmation == "confirm":
                     Email(to, content)
                     speak("OK, Email has been sent !")
                     break
@@ -70,5 +70,5 @@ def real():
 
 
 
-real()
+sendemail()
 
