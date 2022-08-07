@@ -1,0 +1,127 @@
+import subprocess
+import wolframalpha
+import pyttsx3 #pyttsx3 is a cross-platform text to speech library which is platform independent.
+import tkinter as tk #Tkinter is the most commonly used library for developing GUI (Graphical User Interface) in Python.
+from tkinter import * # "*" means all the functions and libraries
+from tkinter.ttk import * #"ttk" - This will give you the effects of modern graphics. 
+import json
+import random
+import operator
+import speech_recognition as sr#To convert speech to text the one and only class we need is the Recognizer class from the speech_recognition module. 
+#Depending upon the underlying API used to convert speech to text, the Recognizer class convert our speech to text.
+import datetime #used
+import wikipedia
+import webbrowser
+import os
+#import winshell
+#import pyjokes
+#import feedparser
+import smtplib
+import ctypes
+import time
+import requests
+import shutil
+#from twilio.rest import Client
+#from clint.textui import progress
+#from ecapture import ecapture as ec
+from bs4 import BeautifulSoup
+import win32com.client as wincl
+from urllib.request import urlopen
+import multiprocessing
+
+
+
+def main():
+    def Result(user_e, pass_e):
+        usern = user_e.get()
+        input2 = pass_e.get()
+        success = "starting Jarvis..."
+        if (usern=="kruthi" and input2 == "ironman46") or (usern == "natasha" and input2 == "explorer67"):
+            Message(root, text = success).place(x = 330, y = 200)
+            chatbot(usern)
+            #call your functions here!!!
+
+        else:
+            Message(root, text = "Autorisation failed!").place(x = 300, y = 200)
+
+
+    root = Tk()  #root is the name of the window that opens
+    frame = Frame(root).pack()
+    root.title("Jarvis Authorisation")
+    label = Label(root, text ="Welcome!", font=('calibre',10, 'bold')).pack() #The Pack geometry manager packs widgets in rows or columns.
+
+    root.geometry("400x250") #set size of window
+
+    user_e = tk.StringVar()
+    pass_e = tk.StringVar()
+
+
+    user_name = Label(root, text = "Username").place(x = 40, y = 60)
+
+    user_pass = Label(root, text ="Password").place(x = 40, y = 100)
+
+    user_entry = Entry(root, width = 30, textvariable = user_e).place(x = 110, y = 60)
+
+    pass_entry = Entry(root, width = 30, textvariable = pass_e, show = "*").place(x = 110, y = 100)
+
+    submit_b = Button(root, text ="Submit", command = lambda: Result(user_e, pass_e)).place(x = 160, y = 140) 
+
+    #exit_b = Button(root, text = "Exit", command = root.destroy).place(x = 300, y= 160)#root.destroy is for exitting the window
+    root.mainloop()
+
+
+def chatbot(usern):
+    chat = Toplevel()
+    #chat.geometry("600x700")
+    chat.title("chatbot")
+    txt = Text(chat, width=60, bg = "black", fg ="white")
+    txt.grid(row=1, column=0, columnspan=3)
+ 
+    scrollbar = Scrollbar(txt)
+    scrollbar.place(relheight=1, relx=0.974)
+
+    ulabel = Label(chat, text = usern + ":")
+    ulabel.grid(row = 2, column = 0)
+ 
+    querytxt= Entry(chat, width=55)
+    querytxt.grid(row=2, column=1)
+ 
+    send = Button(chat, text="Send",command=lambda: initiatetxt(usern, querytxt, txt))
+    send.grid(row=2, column=2)
+
+    chat.mainloop()
+
+
+
+    
+    
+    
+
+def initiatetxt(usern, querytxt, txt):
+    
+    query = querytxt.get()
+    txt.insert(END, "\n" + "you--> " + query)
+    if query == "hi" or query == "hello":
+
+
+        hour = int(datetime.datetime.now().hour) #takes the current hr value
+        if hour>= 0 and hour<12:
+            txt.insert(END, "\n" + "Jarvis -->Good Morning! ", usern)
+           
+        elif hour>= 12 and hour<18:
+            txt.insert(END, "\n" + "Jarvis -->Good Afternoon! ", usern)
+            
+        else:
+            txt.insert(END, "\n" + "Jarvis -->Good Evening! ", usern)
+            
+
+        txt.insert(END, "\n" + "I am Jarvis, your personal Assistant under construction")
+        txt.insert(END, "\n" + "how can I help?")
+    
+    #elif query == 
+
+
+    
+    querytxt.delete(0, END)
+
+main()
