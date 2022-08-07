@@ -1,10 +1,7 @@
-from distutils.command.install_egg_info import to_filename
 import speech_recognition as sr
 import pyttsx3
-import os
-import datetime
 import smtplib
-import time
+
 
 
 engine = pyttsx3.init('sapi5')
@@ -46,9 +43,7 @@ def Email(to, content):
     server.login('nitupatil.2022@gmail.com','huidblzvwluuetbu') # former-'sender_name', latter-'sender_password'
     server.sendmail('nitupatil.2022@gmail.com',to, content) # ('sender_name','receiver_address','message to deliver')
     server.close() # close the server
-#if __name__ == '__main__':
-    #clear = lambda: os.system('cls')
-    #clear()
+
 def real():        
     
     query = takeCommand() # goes back to take command and iterates it
