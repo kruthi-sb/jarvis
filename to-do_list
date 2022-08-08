@@ -1,4 +1,8 @@
-import speech_recognition as sr
+#WE'RE NOT DOING THIS
+#TEMPRORILY HALTED!!!
+
+
+'''import speech_recognition as sr
 import pyttsx3
 
 
@@ -31,4 +35,4 @@ def takeCommand(usern):
     return query
 
 
-#def to-do_l():
+#def to-do_l():'''
