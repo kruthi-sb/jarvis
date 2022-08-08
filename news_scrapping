@@ -40,7 +40,7 @@ def news():
     response = requests.get(url) # accesing url and creating an object
 
     soup = bs(response.text, 'html.parser') # pulling HTTP data from the internet
-    headlines = soup.find_all('h3') # iterates through object(response) and printing it as a string
+    headlines = soup.find("body").find_all('h3') # iterates through object(response) and printing it as a string
 
     hed = headlines[0:10] # printing the top 10 headlines
     
