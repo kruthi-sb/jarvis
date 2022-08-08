@@ -206,8 +206,8 @@ def all_functions(usern):
         # time sleep    
         # Python time sleep function is used to add delay in the execution of a program. 
         # We can use python sleep function to halt the execution of the program for given time in seconds.
-        elif "don't listen" in query or "stop listening" in query:
-            say = "OK" + usern + "for how much time?" #tell in seconds
+        elif "don't listen" in query or "stop listening" in query or "sleep" in query:
+            say = "OK " + usern + "   for how much time?" #tell in seconds
             speak(say)
             try:
                 a = int(takeCommand(usern))
