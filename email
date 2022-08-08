@@ -47,7 +47,7 @@ def Email(to, content):
 def sendemail():        
     
     query = takeCommand() # goes back to take command and iterates it
-    if query == "send an email" or query == "hey jarvis can you send an email":
+    if "send an email" in query:
         try:
             speak("whom should I send? Enter their email address")
             to = input("enter here:")   # receiver's address
@@ -56,7 +56,7 @@ def sendemail():
             while True:
                 speak("confirm the content")
                 confirmation = takeCommand()
-                if confirmation == "ok confirm" or confirmation == "confirm Jarvis" or confirmation == "confirm":
+                if "confirm" in confirmation :
                     Email(to, content)
                     speak("OK, Email has been sent !")
                     break
@@ -67,7 +67,8 @@ def sendemail():
         except Exception as e:
             print(e)
             speak("I am not able to send this email")
-
+    else:
+        speak("sorry, couldn\'t understand your query")
 
 
 sendemail()

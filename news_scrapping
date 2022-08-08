@@ -29,7 +29,7 @@ def takeCommand():
     
     return query 
 def news():
-    l = []
+    
     url='https://www.bbc.com/news' # any news portal ,in this case 'BBC'
     response = requests.get(url) # accesing url and creating an object
 
