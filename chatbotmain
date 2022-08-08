@@ -1,3 +1,4 @@
+'''NOTE: THIS IS HALTED FOR NOW'''
 import subprocess
 import wolframalpha
 import pyttsx3 #pyttsx3 is a cross-platform text to speech library which is platform independent.
