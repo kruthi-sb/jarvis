@@ -87,10 +87,11 @@ atmos = result1.text.strip()
 
 result2 = soup.find("div", {"class":"wr-value--temperature gel-trafalgar"}).find("span", {"class":"wr-hide-visually"})
 temp = result2.text.strip()
+temp = temp[:3]
 #print(res2)#success!!!!
 
 atmos_s = "Today there is " + atmos
-temp_s = "and the temperature is" + temp 
+temp_s = "and the temperature is" + temp + "Celsius"
 ##############################
 
 ##############################
@@ -106,30 +107,6 @@ def Email(to, content):
 
 ################################
 #anything new here
-#google
-'''query = "hey Jarvis search for what is web page in goggle"
-query = query.split(" ")
-j = query.index("for")
-str1 = ""
-query = query[j+1:len(query)-2]
-print(query)
-for i in query:
-    str1 = str1+ " " +i
-print(str1)
-            #query = query[0]
-            #print(query)
-say = "searching for " + str1 + "using google"
-speak(say)
-            
-for i in search(str1, tld="co.in", num=1, stop=1, pause=2):
-    print(i)
-    speak("redirecting to search results")
-    webbrowser.get(using = 'windows-default').open(i)
-
-#for i in search(query, tld="co.in", num=6, stop=6, pause=2):
-   # print(i)''''
-
-    
 ###############################        
         
 ###############################
@@ -178,23 +155,28 @@ def all_functions():
         #google search direct
         elif "in google" in query or "on google" in query: #command format: hey Jarvis search for wormholes in goggle
             #query = "hey Jarvis search for wormholes in goggle"
-            query = query.split(" ")
-            j = query.index("for")
-            str1 = ""
-            query = query[j+1:len(query)-2]
-            #print(query)
-            for i in query:
-                str1 = str1+ " " +i
-            print("searching for", str1, "using google")
+            try:
+
+                query = query.split(" ")
+                j = query.index("for")
+                str1 = ""
+                query = query[j+1:len(query)-2]
+                #print(query)
+                for i in query:
+                    str1 = str1+ " " +i
+                print("searching for", str1, "using google")
             
-            say = "searching for " + str1 + "using google"
-            speak(say)
+                say = "searching for " + str1 + "using google"
+                speak(say)
             
-            for i in search(str1, tld="co.in", num=1, stop=1, pause=2):
-                print("taking you to...")
-                print(i)
-                speak("here are the search results")
-                webbrowser.get(using = 'windows-default').open(i)
+                for i in search(str1, tld="co.in", num=1, stop=1, pause=2):
+                    print("taking you to...")
+                    print(i)
+                    speak("here are the search results")
+                    webbrowser.get(using = 'windows-default').open(i)
+            except Exception as e:
+                print(e)
+                speak("sorry, couldn\'t fetch the results")
                 
 
 
@@ -211,6 +193,7 @@ def all_functions():
             except Exception as e:
                 speak("there was an error in the input, I'm sleeping for 30 seconds as default")
                 time.sleep(30)
+                speak("hey! I\'m back, listening to you again...")
                 
 
         #news    
@@ -283,7 +266,7 @@ def all_functions():
             speak("I\'m just wondering what's inside a blackhole!")
             speak("do you have any idea?")
             answer = takeCommand()
-            speak("Oh I see") # I wish I could use AI for this :(
+            speak("Oh I see!") # I wish I could use AI for this :(
             
         elif "created you" in query or "built you" in query or "made you" in query:
             speak("some great minds called Kruthi and Natasha came together to build this masterpiece!")
@@ -291,6 +274,9 @@ def all_functions():
 
         elif 'joke' in query:
             speak(pyjokes.get_joke())
+
+        elif "friend" in query: # type: you're my best friend in the world!!
+            speak("oh! you melted my heart! Glad to know that!")
 
         
          
@@ -304,7 +290,7 @@ def all_functions():
             speak("Do you want to exit?")
             confirmation = takeCommand()
             if confirmation == "yes" or confirmation == "Yes":
-                speak("OK, Jarvis, signing off")
+                speak("OK, this is Jarvis, signing off")
                 exit()
             else:
                 speak("OK")
@@ -320,7 +306,7 @@ def all_functions():
         
 
 
-#all_functions()
+all_functions()
 
 
 

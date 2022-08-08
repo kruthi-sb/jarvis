@@ -18,10 +18,11 @@ atmos = result1.text.strip()
 
 result2 = soup.find("div", {"class":"wr-value--temperature gel-trafalgar"}).find("span", {"class":"wr-hide-visually"})
 temp = result2.text.strip()
+temp = temp[:3]
 #print(res2)#success!!!!
 
 atmos_s = "Today there is " + atmos
-temp_s = "and the temperature is" + temp 
+temp_s = "and the temperature is" + temp +"Celsius"
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
