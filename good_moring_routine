@@ -1,0 +1,87 @@
+import pyttsx3
+import speech_recognition as sr
+import datetime
+import bs4
+from bs4 import BeautifulSoup as bs
+import requests
+
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'}
+#The User-Agent (UA) string is contained in the HTTP headers and is intended to identify devices requesting online content. 
+# The User-Agent tells the server what the visiting device is (among many other things) and this information can be used to determine what content to return. 
+# Of course this requires using a device detection solution which translates UAs into understandable software and hardware information.
+url = 'https://www.bbc.com/weather/1277333'
+response = requests.get(url)
+#print(response.content)
+soup = bs(response.text, 'html.parser')
+result = soup.find_all('span', {'class':'wr-hide-visually'})
+res = list(result)
+#print(res)
+
+#print(res.index("<span class=\"wr-hide-visually\">Search for a location</span>"))
+
+
+res1 = res[210:]
+here = res1[2]
+here1 = str(here)
+print(here1)
+print(here1[-12:-8])
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id) #0 stands for male voice
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+
+
+def takeCommand():
+    r = sr.Recognizer()
+     
+    with sr.Microphone() as source:
+         
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+  
+    try:
+        print("Recognizing...")   
+        query = r.recognize_google(audio, language ='en-in')
+        print("usern said -->", query)
+  
+    except Exception as e:
+        print(e)   
+        print("Unable to Recognize your voice.") 
+        return "None"
+
+
+def greet():
+    hour = int(datetime.datetime.now().hour) #takes the current hr value
+    minutes = int(datetime.datetime.now().minute)
+    hr = str(hour)
+    m = str(minutes)
+    time = hr + ":" + m
+    if hour>= 0 and hour<12:
+        speak("Good Morning!")
+        speak("usern")
+        speak("its")
+        speak(time)
+        speak("am")
+    elif hour>= 12 and hour<18:
+        speak("Good Afternoon!") 
+        speak("usern")
+        speak("its")
+        speak(time)
+        speak("pm")
+    else:
+        speak("Good Evening!")
+        speak("usern")
+        speak("its")
+        speak(time)
+        speak("pm")
+    
+    
+
+#greet()
+
+
+

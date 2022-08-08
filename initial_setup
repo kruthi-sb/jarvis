@@ -46,11 +46,16 @@ def main():
         usern = user_e.get()
         input2 = pass_e.get()
         success = "starting Jarvis..."
-        if (usern=="kruthi" and input2 == "ironman46") or (usern == "natasha" and input2 == "explorer67"):
+        if (usern=="kruthi" and input2 == "ironman46") or (usern == "natasha" and input2 == "explorer67"): #to let know jarvis who's the user
             Message(root, text = success).place(x = 330, y = 200)
-            initiate(usern)
-            #takeCommand(usern)
-            #call your functions here!!!
+            greeting = takeCommand(usern)
+            if greeting == "good morning jarvis":
+                #good morining routine call function
+                pass
+            else: # if greeting is hi or hello or anything
+                initiate(usern)
+                #takeCommand(usern)
+                #call your functions here!!!
 
         else:
             Message(root, text = "Autorisation failed!").place(x = 300, y = 200)
@@ -87,8 +92,6 @@ def initiate(usern):
     if hour>= 0 and hour<12:
         speak("Good Morning!")
         speak(usern)
-
-        
     elif hour>= 12 and hour<18:
         speak("Good Afternoon!") 
         speak(usern) 
