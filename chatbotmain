@@ -90,7 +90,8 @@ def chatbot(usern):
     send.grid(row=2, column=2)
 
     chat.mainloop()
-
+    
+    return txt #what was needed!!!
 
 
     

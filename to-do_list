@@ -1,0 +1,34 @@
+import speech_recognition as sr
+import pyttsx3
+
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id) #0 stands for male voice
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+def takeCommand(usern):
+    r = sr.Recognizer()
+     
+    with sr.Microphone() as source:
+         
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+  
+    try:
+        print("Recognizing...")   
+        query = r.recognize_google(audio, language ='en-in')
+        print(usern, "said -->", query)
+  
+    except Exception as e:
+        print(e)   
+        print("Unable to Recognize your voice.") 
+        return "None"
+    
+    return query
+
+
+#def to-do_l():

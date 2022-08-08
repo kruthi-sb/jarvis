@@ -1,13 +1,17 @@
 import requests # for html files
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
 import speech_recognition as sr
 import pyttsx3
+
+
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id) #0 stands for male voice
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
+
+
 def takeCommand():
     r = sr.Recognizer()
      
@@ -28,12 +32,14 @@ def takeCommand():
         return "None"   
     
     return query 
+
+
 def news():
     
     url='https://www.bbc.com/news' # any news portal ,in this case 'BBC'
     response = requests.get(url) # accesing url and creating an object
 
-    soup = BeautifulSoup(response.text, 'html.parser') # pulling HTTP data from the internet
+    soup = bs(response.text, 'html.parser') # pulling HTTP data from the internet
     headlines = soup.find_all('h3') # iterates through object(response) and printing it as a string
 
     hed = headlines[0:10] # printing the top 10 headlines
@@ -44,7 +50,7 @@ def news():
         speak(req)
         
 def news_speak():
-    while True:
+    while True: #if needed
         query = takeCommand()
         if "read the news" in query or "latest news" in query:
             try:
