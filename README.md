@@ -36,3 +36,6 @@ username: user1
 password: password1
 
 NOW YOU'RE READY TO GO!🎉
+
+CREDITS:
+Nitisha Patil: https://github.com/Nitisha-Patil
