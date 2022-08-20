@@ -41,7 +41,7 @@ def Email(Address, to, content, Password):
     server.ehlo() # 'ehlo'- for domain name identification
     server.starttls() # 'start-tls'-security reasons
     server.login(Address,Password) # former-'sender_name', latter-'sender_password'
-    server.sendmail('nitupatil.2022@gmail.com',to, content) # ('sender_name','receiver_address','message to deliver')
+    server.sendmail(Address,to, content) # ('sender_name','receiver_address','message to deliver')
     server.close() # close the server
 
 def sendemail():        
