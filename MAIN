@@ -334,7 +334,7 @@ def main():
         usern = user_e.get()
         input2 = pass_e.get()
         success = "starting Jarvis..."
-        if (usern=="kruthi" and input2 == "ironman46") or (usern == "natasha" and input2 == "explorer67"): #to let know jarvis who's the user
+        if (usern=="user1" and input2 == "password1") or (usern =="user2" and input2 == "password2"): #just to let know jarvis who's the user
             Message(root, text = success).place(x = 330, y = 200)
             #import pdb;pdb.set_trace()
             greeting = takeCommand(usern)

@@ -1,20 +1,38 @@
-JARVIS: A VOICE ASSISTANT
-WE'RE GONNA BUILD A VOICE ASSISTANT USING PYTHON LIBRARIES!
+✨JARVIS: A VOICE ASSISTANT✨
+We created this prototype using few basic python libraries.
+🔴NOTE1: the code is campatible with windows but not linux
+🔴Earphones must be connected to your device before running the code.
 
-NECESSARY IMPORTS:
+The MAIN file contains the complete code.
+With this code, it is possible to ask Jarvis:
+✨Current weather in Bengaluru*
+✨Latest news
+✨To open websites 
+✨To make a goggle search
+✨To search on wikipedia
+✨To send an email**
+✨Jokes
+✨Friendly talk
 
-import pyttsx3 #pyttsx3 is a cross-platform text to speech library which is platform independent.
-import tkinter as tk #Tkinter is the most commonly used library for developing GUI (Graphical User Interface) in Python.
-from tkinter import * # "*" means all the functions and libraries
-from tkinter.ttk import * #"ttk" - This will give you the effects of modern graphics. 
-import speech_recognition as sr#To convert speech to text the one and only class we need is the Recognizer class from the speech_recognition module. 
-#Depending upon the underlying API used to convert speech to text, the Recognizer class convert our speech to text.
-import datetime #used
-import wikipedia
-import webbrowser
-import smtplib
-import time
-import requests
-from bs4 import BeautifulSoup as bs
-import pyjokes
-from googlesearch import search
+🔴NOTE2:
+* only in Bengaluru
+** you need to set the code with you gmail address and password! So, this will make your account less secure! It is recommended to create a dummy account for this reason.
+
+👉for running the MAIN file, the following libraries must be installed in python3 through CLI:
+1. pyttsx3 
+2. tkinter 
+3. SpeechRecognition
+4. datetime 
+5. wikipedia
+6. webbrowser
+7. smtplib
+8. requests
+9. bs4  (BeautifulSoup)
+10. pyjokes
+11. googlesearch 
+
+👉On running the code, a window for authorisation pops up. for testing purpose enter the details as:
+username: user1
+password: password1
+
+NOW YOU'RE READY TO GO!🎉

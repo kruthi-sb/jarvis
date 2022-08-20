@@ -40,7 +40,11 @@ def Email(Address, to, content, Password):
     server = smtplib.SMTP('smtp.gmail.com', 587) # former-'server location' ,latter-'port to be used(specific to server location)'
     server.ehlo() # 'ehlo'- for domain name identification
     server.starttls() # 'start-tls'-security reasons
+<<<<<<< HEAD
     server.login(Address,Password) # former-'sender_name', latter-'sender_password'
+=======
+    server.login(Address, Password) # former-'sender_name', latter-'sender_password'
+>>>>>>> 9656b23c670de1a0937b0d40e965c114a67eaecb
     server.sendmail('nitupatil.2022@gmail.com',to, content) # ('sender_name','receiver_address','message to deliver')
     server.close() # close the server
 
@@ -51,7 +55,11 @@ def sendemail():
         try:
             speak("enter your gmail address and password")
             Address = input("enter your gmail address:")
+<<<<<<< HEAD
             Password = input("enter your password:")
+=======
+            Password = input("enter the password:")
+>>>>>>> 9656b23c670de1a0937b0d40e965c114a67eaecb
             speak("whom should I send? Enter their email address")
             to = input("enter here:")   # receiver's address
             speak("What should I say?")
