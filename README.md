@@ -15,7 +15,7 @@ With this code, it is possible to ask Jarvis:
 ✨Friendly talk
 
 🔴NOTE2:
-* only in Bengaluru
+ * only in Bengaluru
 ** you need to type your gmail address and password! So, this will make your current account less secure! It is recommended to create a dummy account for this reason.
 
 👉For running the MAIN file, the following libraries must be installed in python3 through CLI:
