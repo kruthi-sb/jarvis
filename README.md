@@ -16,9 +16,9 @@ With this code, it is possible to ask Jarvis:
 
 🔴NOTE2:
 * only in Bengaluru
-** you need to set the code with you gmail address and password! So, this will make your account less secure! It is recommended to create a dummy account for this reason.
+** you need to type your gmail address and password! So, this will make your current account less secure! It is recommended to create a dummy account for this reason.
 
-👉for running the MAIN file, the following libraries must be installed in python3 through CLI:
+👉For running the MAIN file, the following libraries must be installed in python3 through CLI:
 1. pyttsx3 
 2. tkinter 
 3. SpeechRecognition
