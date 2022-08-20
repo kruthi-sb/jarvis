@@ -99,12 +99,12 @@ temp_s = "and the temperature is" + temp + "Celsius"
 
 ##############################
 #EMAIL SETUP
-def Email(to, content): 
+def Email(Address, to, content, Password): 
     server = smtplib.SMTP('smtp.gmail.com', 587) # former-'server location' ,latter-'port to be used(specific to server location)'
     server.ehlo() # 'ehlo'- for domain name identification
     server.starttls() # 'start-tls'-security reasons
-    server.login('nitupatil.2022@gmail.com','huidblzvwluuetbu') # former-'sender_name', latter-'sender_password'
-    server.sendmail('nitupatil.2022@gmail.com',to, content) # ('sender_name','receiver_address','message to deliver')
+    server.login(Address,Password) # former-'sender_name', latter-'sender_password'
+    server.sendmail(Address,to, content) # ('sender_name','receiver_address','message to deliver')
     server.close() # close the server
 ################################
 
@@ -249,6 +249,10 @@ def all_functions(usern):
         #EMAIL
         elif "send an email" in query:
             try:
+                speak("enter your gmail address and password")
+                Address = input("enter your gmail address:")
+                Password = input("enter the password:")
+                
                 speak("whom should I send? Enter their email address")
                 to = input("enter here:")   # receiver's address
                 speak("What should I say?")
@@ -257,7 +261,7 @@ def all_functions(usern):
                     speak("confirm the content")
                     confirmation = takeCommand(usern)
                     if "confirm" in confirmation :
-                        Email(to, content)
+                        Email(Address,to, content, Password)
                         speak("OK, Email has been sent !")
                         break
                     else: 
