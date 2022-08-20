@@ -336,7 +336,9 @@ def main():
         success = "starting Jarvis..."
         if (usern=="kruthi" and input2 == "ironman46") or (usern == "natasha" and input2 == "explorer67"): #to let know jarvis who's the user
             Message(root, text = success).place(x = 330, y = 200)
+            #import pdb;pdb.set_trace()
             greeting = takeCommand(usern)
+            
             if "good morning" in greeting or "Good morning" in greeting:
                 #good morining routine call function
                 good_morning(usern)
