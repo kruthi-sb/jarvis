@@ -18,4 +18,8 @@ The MAIN file contains the complete code.
 10. pyjokes
 11. googlesearch 
 
+👉On running the code, a window for authorisation pops up. for testing purpose enter the details as:
+username: user1
+password: password1
+
 NOW YOU'RE READY TO GO!🎉
