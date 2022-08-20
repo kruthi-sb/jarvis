@@ -1,11 +1,24 @@
 ✨JARVIS: A VOICE ASSISTANT✨
 We created this prototype using few basic python libraries.
-The MAIN file contains the complete code.
-🔴NOTE: the code is campatible with windows but not linux
+🔴NOTE1: the code is campatible with windows but not linux
 🔴Earphones must be connected to your device before running the code.
 
-👉for running the MAIN file, libraries to be installed in python3 through CLI:
+The MAIN file contains the complete code.
+With this code, it is possible to ask Jarvis:
+✨Current weather in Bengaluru*
+✨Latest news
+✨To open websites 
+✨To make a goggle search
+✨To search on wikipedia
+✨To send an email**
+✨Jokes
+✨Friendly talk
 
+🔴NOTE2:
+* only in Bengaluru
+** you need to set the code with you gmail address and password! So, this will make your account less secure! It is recommended to create a dummy account for this reason.
+
+👉for running the MAIN file, the following libraries must be installed in python3 through CLI:
 1. pyttsx3 
 2. tkinter 
 3. SpeechRecognition
