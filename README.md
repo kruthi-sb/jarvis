@@ -15,8 +15,8 @@ With this code, it is possible to ask Jarvis:
 ✨Friendly talk
 
 🔴NOTE2:
- * only in Bengaluru
-** you need to type your gmail address and password! So, this will make your current account less secure! It is recommended to create a dummy account for this reason.
+👉* only in Bengaluru
+👉** you need to type your gmail address and password! So, this will make your current account less secure! It is recommended to create a dummy account for this reason.
 
 👉For running the MAIN file, the following libraries must be installed in python3 through CLI:
 1. pyttsx3 
@@ -38,4 +38,5 @@ password: password1
 NOW YOU'RE READY TO GO!🎉
 
 CREDITS:
+Kruthi S B: https://github.com/kruthi-sb
 Nitisha Patil: https://github.com/Nitisha-Patil
